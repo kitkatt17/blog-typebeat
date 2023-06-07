@@ -1,12 +1,14 @@
 <h1> Blog </h1>
 
-<div class="card">
+<section class="blog-card">
+<main class="card">
     <a href="/blogs/{{blogId}}">
-        <div class="card-body">
-            <h2>{{blogTitle}}</h2>
-            <h3>By {{user.username}} on {{blogDate}}</h3>
-        </div>
+        <article class="card-body">
+            <h2>{{blog.title}}</h2>
+            <p>By {{user.username}} on {{formatDate blog.createdAt}}</p>
+        </article>
     </a>
-</div>
+</main>
+</section>
 
 <script src="/public/js/post.js"></script>

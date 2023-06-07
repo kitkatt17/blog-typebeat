@@ -1,0 +1,21 @@
+<h1> Comment </h1>
+
+<section class="blog-comment-card">
+    <div class="card-body">
+    {{#if comments.length}}
+        <h2>Comments</h2>
+            <ul>
+            {{#each comments}}
+            <li>
+                <h4>{{user.username}}</h4>
+                <p>{{comment}} on {{formatDate blog.createdAt}}</p>
+            </li>
+                {{/each}}
+            </ul>
+        {{else}}
+    <p>No comments yet.</p>
+        {{/if}}
+    </div>
+</section> 
+
+<script src="/public/js/commented.js"></script>
