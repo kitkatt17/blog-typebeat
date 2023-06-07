@@ -67,4 +67,4 @@ mysql -u root -p
 
 [GitHub Repo](https://github.com/kitkatt17/blog-typebeat)
 
-[Deployed Link]()
+[Heroku Deployed Link]()
