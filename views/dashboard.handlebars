@@ -1,0 +1,32 @@
+<!-- dashboard.hbs -->
+<title> Tech Blog Typebeat </title> 
+
+{{{main}}}
+
+<main>
+  <h1> Welcome to Your Dashboard </h1>
+
+  {{#if blogs}}
+    <h2>Your Blogs</h2>
+    <ul>
+      {{#each blogs}}
+        <li>
+          <a href="/blogs/{{id}}">
+            <h3>{{title}}</h3>
+          </a>
+          <p>Posted on {{formatDate createdAt}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p> No blogs found. </p>
+  {{/if}}
+  
+  <a href="/new-post"> Create New Blog </a>
+</main>
+
+    <footer class="footer-card justify-center">
+        <a href="/dashboard/new"> New Post + </a>
+    </footer>
+
+    
