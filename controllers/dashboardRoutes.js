@@ -1,6 +1,7 @@
 
 const router = require('express').Router();
-const { Post } = require('../models/');
+// const { Model } = require('sequelize');
+const { Post, Comment, User } = require('../models/');
 const withAuth = require('../utils/auth');
 
 // Getting all the posts by the logged-in user
@@ -9,6 +10,7 @@ router.get('/', withAuth, async (req, res) => {
     const postData = await Post.findAll({
       where: {
         userId: req.session.userId,
+        include: {model: User},
       },
     });
 
@@ -19,13 +21,14 @@ router.get('/', withAuth, async (req, res) => {
       posts,
     });
   } catch (err) {
+    // If user is not logged in, redirect to login page/route
     res.redirect('login');
   }
 });
 
 // Rendering the new post form
 router.get('/new', withAuth, (req, res) => {
-  res.render('new-post', {
+  res.render('new-post-form', {
     layout: 'dashboard',
   });
 });
